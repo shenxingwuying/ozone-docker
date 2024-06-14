@@ -20,10 +20,14 @@ RUN sudo rm -rf /opt/hadoop && curl -LSs -o ozone.tar.gz $OZONE_URL && tar zxf o
 WORKDIR /opt/hadoop
 COPY log4j.properties /opt/hadoop/etc/hadoop/log4j.properties
 COPY ozone-site.xml /opt/hadoop/etc/hadoop/ozone-site.xml
+COPY ozone-site_dn.xml ozone-site_dn_template.xml /opt/hadoop/etc/hadoop/ozone-site.xml
+COPY render-site.py /opt/hadoop/render-site.py
 RUN sudo chown -R hadoop:users /opt/hadoop/etc/hadoop
-COPY --chown=hadoop:users start-ozone-all.sh /usr/local/bin/
+COPY --chown=hadoop:users start-ozone-all.sh start-ozone-all_multi_datanodes.sh /usr/local/bin/
 COPY --chown=hadoop:users docker-compose.yaml /opt/hadoop/
 COPY --chown=hadoop:users docker-config /opt/hadoop/
 ENV OZONE_CONF_DIR=/etc/hadoop
 ENV OZONE_LOG_DIR=/var/log/hadoop
-CMD ["/usr/local/bin/start-ozone-all.sh"]
+
+# CMD ["/usr/local/bin/start-ozone-all.sh"]
+# CMD ["/usr/local/bin/start-ozone-all_multi_datanodes.sh"]

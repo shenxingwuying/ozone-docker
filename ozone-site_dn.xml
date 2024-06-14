@@ -1,0 +1,98 @@
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<configuration>
+<property><name>ozone.om.ratis.enable</name><value>false</value></property>
+<property><name>ozone.scm.block.client.address</name><value>localhost</value></property>
+<property><name>ozone.scm.datanode.id</name><value>/tmp/datanode.id</value></property>
+<property><name>ozone.scm.client.address</name><value>localhost</value></property>
+<property><name>ozone.metadata.dirs</name><value>/tmp/metadata</value></property>
+<property><name>ozone.scm.names</name><value>localhost</value></property>
+<property><name>ozone.om.address</name><value>localhost</value></property>
+<property><name>ozone.recon.db.dir</name><value>/tmp/metadata/recon</value></property>
+<property><name>ozone.recon.address</name><value>localhost:9891</value></property>
+
+<!-- DataNode -->
+  <property>
+    <name>dfs.container.ratis.enabled</name>
+    <value>false</value>
+    <tag>OZONE, MANAGEMENT, PIPELINE, RATIS</tag>
+  </property>
+
+  <property>
+    <name>dfs.container.ratis.datastream.enabled</name>
+    <value>false</value>
+    <tag>OZONE, CONTAINER, RATIS, DATASTREAM</tag>
+  </property>
+  <property>
+    <name>dfs.container.ratis.datastream.port</name>
+    <value>10855</value>
+    <tag>OZONE, CONTAINER, RATIS, DATASTREAM</tag>
+    <description>default: 9855</description>
+  </property>
+
+  <property>
+    <name>hdds.datanode.client.port</name>
+    <value>20864</value>
+    <tag>OZONE, HDDS, MANAGEMENT</tag>
+    <description>default: 19864</description>
+  </property>
+
+  <property>
+    <name>hdds.datanode.http-address</name>
+    <value>0.0.0.0:10882</value>
+    <tag>HDDS, MANAGEMENT</tag>
+    <description>default: 9882</description>
+  </property>
+
+  <property>
+    <name>dfs.container.ipc</name>
+    <value>10859</value>
+    <tag>OZONE, CONTAINER, MANAGEMENT</tag>
+    <description>default: 9859</description>
+  </property>
+  <property>
+    <name>dfs.container.ratis.ipc</name>
+    <value>10858</value>
+    <tag>OZONE, CONTAINER, PIPELINE, RATIS</tag>
+    <description>default: 9858</description>
+  </property>
+  <property>
+    <name>dfs.container.ratis.admin.port</name>
+    <value>10857</value>
+    <tag>OZONE, CONTAINER, PIPELINE, RATIS, MANAGEMENT</tag>
+    <description>default: 9857</description>
+  </property>
+  <property>
+    <name>dfs.container.ratis.server.port</name>
+    <value>10856</value>
+    <tag>OZONE, CONTAINER, PIPELINE, RATIS, MANAGEMENT</tag>
+    <description>default: 9856</description>
+  </property>
+
+  <property>
+    <name>hdds.datanode.dir</name>
+    <value>[DISK]/opt/ozone/dn1/data</value>
+    <tag>OZONE, CONTAINER, STORAGE, MANAGEMENT</tag>
+  </property>
+
+<property>
+  <name>hdds.datanode.replication.port</name>
+  <value>10886</value>
+  <description>default: 9886</description>
+</property>
+
+</configuration>
