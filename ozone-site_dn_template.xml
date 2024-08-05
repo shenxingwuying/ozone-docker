@@ -17,9 +17,9 @@
 <configuration>
 <property><name>ozone.om.ratis.enable</name><value>false</value></property>
 <property><name>ozone.scm.block.client.address</name><value>localhost</value></property>
-<property><name>ozone.scm.datanode.id</name><value>/tmp/datanode.id</value></property>
+<property><name>ozone.scm.datanode.id</name><value>{{ ozone.scm.datanode.id }}</value></property>
 <property><name>ozone.scm.client.address</name><value>localhost</value></property>
-<property><name>ozone.metadata.dirs</name><value>/tmp/metadata</value></property>
+<property><name>ozone.metadata.dirs</name><value>{{ ozone.metadata.dirs }}</value></property>
 <property><name>ozone.scm.names</name><value>localhost</value></property>
 <property><name>ozone.om.address</name><value>localhost</value></property>
 <property><name>ozone.recon.db.dir</name><value>/tmp/metadata/recon</value></property>
@@ -50,7 +50,7 @@
 </property>
 <property>
   <name>hdds.datanode.http-address</name>
-  <value>0.0.0.0:{{ datanode.http-address.port }}</value>
+  <value>0.0.0.0:{{ datanode.http_address.port }}</value>
   <tag>HDDS, MANAGEMENT</tag>
   <description>default: 9882</description>
 </property>

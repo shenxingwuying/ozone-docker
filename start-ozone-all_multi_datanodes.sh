@@ -24,8 +24,9 @@ python3 /opt/hadoop/render-site.py
 python3 render-site.py
 for i in {0..7}; do
     datanode_dir=/opt/ozone/datanode$i
-    mkdir -p $datanode_dir/log
-    OZONE_CONF_DIR=$datanode_dir/config OZONE_PID_DIR=$datanode_dir sh -x $datanode_dir/libexec/entrypoint.sh $datanode_dir/bin/ozone datanode &> $datanode_dir/log/datanode.log &
+    mkdir -p $datanode_dir/log $datanode_dir/meta $datanode_dir/data
+    sudo chown -R hadoop.hadoop $datanode_dir/meta $datanode_dir/data
+    CUSTOMIZED_CONFIG_DIR=$datanode_dir/etc/hadoop OZONE_PID_DIR=$datanode_dir sh -x $datanode_dir/libexec/entrypoint.sh $datanode_dir/bin/ozone datanode &> $datanode_dir/log/datanode.log &
 done
 
 /opt/hadoop/libexec/entrypoint.sh ozone om --init &> /opt/hadoop/log/om_init.log
